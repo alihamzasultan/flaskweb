@@ -1,0 +1,97 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+   
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+    <link rel="stylesheet" href="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/css/bootstrap.min.css">
+    <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/css/all.min.css"> <!-- Font Awesome Icons -->
+    <style>
+        body {
+            transition: background-color 0.5s, color 0.5s;
+        }
+
+        body.dark-mode {
+            background-color: #ffffff;
+            color: #383737;
+        }
+
+        .navbar-dark .navbar-toggler-icon {
+            background-color: #fff;
+        }
+
+        .dark-mode h1,
+        .dark-mode p {
+            color: #000000;
+        }
+
+        .navbar-toggler {
+            transition: background-color 0.5s;
+        }
+
+        .navbar-toggler-btn {
+            margin-left: 100px;
+            transition: transform 0.3s;
+            
+        }
+
+        .navbar-toggler-btn:hover {
+            transform: scale(1.2);
+        }
+
+        .toggle-icon {
+            font-size: 20px;
+        }
+    </style>
+    <title>Solvemee.online</title>
+</head>
+
+<body>
+
+<nav class="navbar navbar-expand-lg navbar-dark bg-dark">
+    <div class="container-fluid">
+        <a class="navbar-brand" href="#">Solvemee.online</a>
+        <div class="navbar-toggler-btn ml-auto">
+            <!-- Add icons for moon and sun -->
+            <button class="btn btn-outline-light" onclick="toggleDarkMode()">
+                <i class="fas fa-moon toggle-icon"></i>
+                <i class="fas fa-sun toggle-icon" style="display: none;"></i>
+            </button>
+        </div>
+        <button class="navbar-toggler" type="button" data-toggle="collapse" data-target="#navbarSupportedContent" aria-controls="navbarSupportedContent" aria-expanded="false" aria-label="Toggle navigation">
+            <span class="navbar-toggler-icon"></span>
+        </button>
+        <div class="collapse navbar-collapse" id="navbarSupportedContent">
+            <ul class="navbar-nav me-auto mb-2 mb-lg-0">
+                <!-- Remove the Home and Link navbar items -->
+            </ul>
+        </div>
+    </div>
+</nav>
+
+<div class="container">
+    <h1>Ai MCQs Solver</h1>
+    <p>Solve your Questions from images with Ai</p>
+    {% block content %}{% endblock %}
+</div>
+
+<script src="https://code.jquery.com/jquery-3.2.1.slim.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/popper.js/1.12.9/umd/popper.min.js"></script>
+<script src="https://maxcdn.bootstrapcdn.com/bootstrap/4.0.0/js/bootstrap.min.js"></script>
+<script src="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0/js/all.min.js"></script> <!-- Font Awesome Icons -->
+
+<script>
+    function toggleDarkMode() {
+        var body = document.body;
+        body.classList.toggle('dark-mode');
+        
+        // Toggle between moon and sun icons
+        var moonIcon = document.querySelector('.fa-moon');
+        var sunIcon = document.querySelector('.fa-sun');
+        moonIcon.style.display = moonIcon.style.display === 'none' ? 'inline' : 'none';
+        sunIcon.style.display = sunIcon.style.display === 'none' ? 'inline' : 'none';
+    }
+</script>
+
+</body>
+</html>
